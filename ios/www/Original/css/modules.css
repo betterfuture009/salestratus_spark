@@ -1,0 +1,155 @@
+.mod-login							{ position: absolute; top: 50%; margin-top: -120px; }
+.mod-login {  border: 1px solid #ccc;   left: 0;    margin: 0 auto;    position: absolute;    right: 0;    top: 30%;    width: 400px; padding:15px 30px;}
+
+.mod-login img						{ margin: 0 0 20px; }
+.mod-login .input-group				{ margin: 0 0 20px; }
+
+.mod-breadcrumb-export				{ margin-bottom: 20px; }
+.logout     							{padding: 12px; border: 1px solid #096; text-decoration: none; background: #096 none repeat scroll 0% 0%; color: #fff !important; border-radius:10px }
+.logouts {    text-align: right;
+padding: 5px;
+}
+.export 								{padding: 12px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%; color: #FFF !important;}
+.create-company	{padding: 12px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%;  color: #fff !important;}
+.mod-breadcrumbs { list-style: none; margin: 0; padding: 0; font-size: 0; }
+.mod-breadcrumbs li{ display: inline-block; margin: 0 0 0 10px; padding: 0 0 0 10px; border-left: 1px solid #ccc; line-height: 1; }
+.mod-breadcrumbs li:first-child 	{ border: 0 none; margin: 0; padding: 0; }
+
+
+
+.action-icons{ list-style: none; padding: 0; margin: 0; white-space: nowrap; }
+.action-icons li{ display: inline-block; }
+
+.mod-table-b table>tbody>tr>th		{ background: #ddd; vertical-align: middle; }
+
+.rotate-90							{ display: block; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg); }
+
+.delay-small						{ animation-delay: 0.6s;}
+.delay-medium						{ animation-delay: 0.9s;}
+.delay-large						{ animation-delay: 1.2s;}
+
+.owl-prev							{ position: fixed; top: 50%; left: 10px; font-size: 20px; margin-top: -10px; cursor: pointer; }
+.owl-next							{ position: fixed; top: 50%; right: 10px; font-size: 20px; margin-top: -10px; cursor: pointer; }
+
+.owl-controls .owl-page span		{ background: #fff; box-shadow: 0px 0px 5px rgba(0,0,0,1); width: 16px; height: 16px; border-radius: 8px; opacity: 0.7; }
+.tablecompany .cf{ padding:10px; background:#666}
+.tablecompany tr th{ padding:10px}
+.tablecompany td{ text-align:left; padding:10px}
+.green_btn{padding: 12px; border: 1px solid #096; text-decoration: none; background: #096 none repeat scroll 0% 0%; color: rgb(255, 255, 255);  color:#fff!Important; border-radius:0px;}
+.blue_btn{padding: 12px; border: 1px solid #096; text-decoration: none; background:#09F; color: rgb(255, 255, 255); color:#fff!Important; border-radius:0px;}
+
+
+a:hover{ text-decoration:none; color:#ccc}
+.green{ background:#096; color:#fff; padding:15px; border-radius:50%; font-size: 25px;padding: 0 10px; text-decoration:none;}
+.red{ background:#ff0000; color:#fff; padding:0 9px 0 6px; border-radius:50%; font-size: 25px; padding: 0 10px; text-decoration:none; margin-right:25px;}
+.green{ background:url(../images/green_but.png) no-repeat center; color:#fff; padding:0 9px 0 6px;  font-size: 25px; padding: 0 15px; text-decoration:none; margin-right:25px;}
+.grey{ background:url(../images/grey_but.png) no-repeat center; color:#fff; padding:0 9px 0 6px; border-radius:50%; font-size: 25px; padding: 0 15px; text-decoration:none; margin-right:25px;}
+
+.left{ float:left;}
+.line1 {padding:4px 0px; color:#000 !important;}
+.form1 {    background-color: #fff;    border: medium none;    margin-top: 0;    padding: 0 15px;    width: 660px;	border:1px solid #ccc;}
+.heading_top h1 {background-color: #000; color: #999; font-size: 16px; margin-top:0px; padding: 7px 0; text-align: center;}
+.corner{ border-radius:0px !important;}
+.corner li a{ line-height:0px !important; padding:5px 25px !important;   }
+.del {   border: medium none;    border-radius: 50%; color: #fff;    font-size: 21px;    font-weight: bold; height: 32px;    margin-top: 0;    padding: 1px; width: 32px;	float:right;}
+.red{  background-color: #f00;}
+.blue{  background-color: #39C;}
+.line p b{ color: #338BCC; font-size:13px !important;}
+.but_align{ text-align:center; padding-top:0px}
+.text_area{ height:17px; border-bottom:#CCC 1px solid;}
+
+.body_1{padding:0px;}
+.but_l{ padding:20px 30px;}
+.but_r{ padding:20px 30px;}
+.body_td tr{ border-bottom:1px solid #ccc !important;}
+.body_td td { padding:15px 0;  width:auto; color:#000;  }
+.body_td td hr{ display:block; float:left; width:90%; border-bottom:#999 1px solid;}
+
+
+.t_are {    float: left;    margin: 0 5px 0 0;    width: 94% !important;}
+.line {	padding: 4px 0px;}
+.form1 {	background-color: #fff;	border: medium none;margin-top: 0;	width: 660px;	padding: 0px 12px;	border: 1px solid #ccc;}
+.heading_top h1 {	background-color: #000;	color: #999;	font-size: 16px;	margin-top: 0px;	padding: 7px 0;	text-align: center;}
+.corner {	border-radius: 0px !important;}
+.corner li a {	line-height: 0px !important;	padding: 5px 25px !important;}
+.del {border: medium none;border-radius: 50%;	color: #fff;	font-size: 21px;font-weight: bold;	height: 32px;	margin-top: 0;	padding: 1px;	width: 32px;float: right; line-height:25px;}
+.red {background-color: #f00; margin:0px; text-align:center;}
+.blue {	background-color: #39C;text-align:center;}
+.line p b {	color: #338BCC;	font-size: 13px !important;}
+.but_align {	text-align: center;	padding-top: 0px}
+.text_area {height: 17px;	border-bottom: #CCC 1px solid;}
+
+
+a:hover{ text-decoration:none; color:#ccc}
+.green{ background:#096; color:#fff; padding:15px; border-radius:50%; font-size: 25px;
+padding: 0 10px; text-decoration:none;}
+.red {   background: #ff0000 none repeat scroll 0 0;    border-radius: 50%;    color: #fff;    font-size: 23px;    margin-right: 25px;    padding: 0 9px;    text-decoration: none;}
+.green{ background:url(../images/green_but.png) no-repeat center; color:#fff; padding:0 9px 0 6px;  font-size: 25px; padding: 0 15px; text-decoration:none; margin-right:25px;}
+.grey{ background:url(../images/grey_but.png) no-repeat center; color:#fff; padding:0 9px 0 6px; border-radius:50%; font-size: 25px; padding: 0 15px; text-decoration:none; margin-right:25px;}
+.table-striped a{ color:#fff; text-decoration:none;}
+#company-table tr th:nth-child(1){ width:230px;}
+.companybody tr{ border-bottom:1px solid #ccc;}
+
+.left{ float:left;}
+.edit_btn{ background: rgba(0, 0, 0, 0) url("../images/edit_property.png") no-repeat scroll 6px 16px / 25px auto ;  padding: 20px; }
+
+.border-none{ border:none;}
+.thankyou{ border:1px solid #CCC; height:auto; padding:5px}
+.btn_submit{ padding:5px 75px; border:1px solid #338bcc!important; text-align:center; background:#fff; width:100%; color:#338bcc;}
+.btnbg{ background:#fff; border:1px solid #CCC;}
+.save{ padding:5px 15px; border:1px solid #338bcc!important; text-align:center; background:#fff; color:#338bcc;}
+
+.txtarea {  float: left;  width: 92%;}
+.list-group-item-success {
+background-color: #f1f1f1;
+color: #3c763d;
+}
+a.list-group-item-success {
+color: #999;
+}
+.list-group-item-success:hover{ color:#333; background:#CCC;}
+.userlist_1 li:nth-child(1){ width: 75% !important; }
+.cratecompany{ width:500px!important;}
+
+@media (max-width:800px) {
+.form1{ border:none;  background-color:#FFF; width:100%; margin:0px;  }
+.button {height: 40px;padding: 0 40px 0 25px;width:100%;}
+.owl-prev { left: 5px; font-size: 15px; }
+.owl-next { right: 5px; font-size: 15px; }
+.owl-controls { position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; padding: 10px; background: rgba(0,0,0,0.75); }
+}
+
+@media(max-width:650px){ 
+.tds tr{ border-bottom:1px solid#ccc;}
+.green {  font-size: 19px;  padding: 0 7px;   text-decoration: none;}
+.red {   font-size: 17px;    padding: 0 6px;    text-decoration: none;}
+.green_btn{padding: 5px;}
+.blue_btn{ padding:5px;}
+.mod-login{ width:90%; }
+.logout {padding: 4px; border: 1px solid #096; text-decoration: none; background: #096 none repeat scroll 0% 0%; color: rgb(255, 255, 255); border-radius:10px }
+.export{padding: 4px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%; color: rgb(255, 255, 255);}
+.create-company	{padding: 4px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%; color: #fff !important;}
+.blue_btn{ padding:5px!important;}
+.tablecompany {font-size: 11px;margin: 0 auto;width: 94%;}
+.tablecompany tr th{ padding:0px 0;}
+.tablecompany tr td{ padding:1px;}
+.body_td td hr{ display:none;}
+.body_td tr td { width:auto; padding:18px 0px }
+.body_td tr td:nth-child(3){ text-align:right;}
+.body_td tr{ border-bottom:1px solid #ccc;}
+.del{ float:right!Important; text-align:center;}
+.t_are{ width:100% !important;}
+.body_td tr:nth-child(8){ border:none;}
+.body_td tr:nth-child(1){ border:none;}	
+.but_align{ text-align: right; position:relative;   top: -54px;}	
+.body_td tr td {padding: 12px 0;width: auto;}
+.but_align {text-align: right;position: relative;top: -54px;}
+.body_td tr td {padding: 12px 0;width: auto;}
+.form1 {background-color: #fff;border: 1px solid #ccc; margin-top: 0;width: auto;padding: 0px 12px;}
+.txtarea {  float: left;  width: 85%;}
+.cratecompany{ width:100%!important}
+#company-table tr th:nth-child(1) {  width: auto;}
+#flip-scroll th {   height: 54.8px!important;}
+.button { height: 40px;    padding: 1px 10px;    width: 100%;}
+}
+

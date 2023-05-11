@@ -1,0 +1,60 @@
+.mod-login							{ position: absolute; top: 50%; margin-top: -120px; }
+.mod-login img						{ margin: 0 0 20px; }
+.mod-login .input-group				{ margin: 0 0 20px; }
+
+.mod-breadcrumb-export				{ margin-bottom: 20px; }
+.logout     							{padding: 12px; border: 1px solid #096; text-decoration: none; background: #096 none repeat scroll 0% 0%; color: #fff !important; border-radius:10px }
+.export 								{padding: 12px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%; color: #FFF !important;}
+.create-company						{padding: 12px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%;  color: #fff !important;}
+.mod-breadcrumbs 					{ list-style: none; margin: 0; padding: 0; font-size: 0; }
+.mod-breadcrumbs li					{ display: inline-block; margin: 0 0 0 10px; padding: 0 0 0 10px; border-left: 1px solid #ccc; line-height: 1; }
+.mod-breadcrumbs li:first-child 	{ border: 0 none; margin: 0; padding: 0; }
+
+.action-icons						{ list-style: none; padding: 0; margin: 0; white-space: nowrap; }
+.action-icons li					{ display: inline-block; }
+
+.mod-table-b table>tbody>tr>th		{ background: #ddd; vertical-align: middle; }
+
+.rotate-90							{ display: block; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg); }
+
+.delay-small						{ animation-delay: 0.6s;}
+.delay-medium						{ animation-delay: 0.9s;}
+.delay-large						{ animation-delay: 1.2s;}
+
+.owl-prev							{ position: fixed; top: 50%; left: 10px; font-size: 20px; margin-top: -10px; cursor: pointer; }
+.owl-next							{ position: fixed; top: 50%; right: 10px; font-size: 20px; margin-top: -10px; cursor: pointer; }
+
+.owl-controls .owl-page span		{ background: #fff; box-shadow: 0px 0px 5px rgba(0,0,0,1); width: 16px; height: 16px; border-radius: 8px; opacity: 0.7; }
+.tablecompany .cf{ padding:10px; background:#666}
+.tablecompany tr th{ padding:10px}
+.tablecompany td{ text-align:left; padding:10px}
+.green_btn{padding: 12px; border: 1px solid #096; text-decoration: none; background: #096 none repeat scroll 0% 0%; color: rgb(255, 255, 255);  color:#fff!Important; border-radius:0px;}
+.blue_btn{padding: 12px; border: 1px solid #096; text-decoration: none; background:#09F; color: rgb(255, 255, 255); color:#fff!Important; border-radius:0px;}
+
+@media screen and (max-width: 768px) {
+	
+.owl-prev							{ left: 5px; font-size: 15px; }
+.owl-next							{ right: 5px; font-size: 15px; }
+
+.owl-controls						{ position: fixed; bottom: 0; left: 0; width: 100%; box-sizing: border-box; padding: 10px; background: rgba(0,0,0,0.75); }
+
+}
+
+
+
+@media(max-width:650px){ 
+.tds tr{ border-bottom:1px solid#ccc;}
+.green {  font-size: 19px;  padding: 0 7px;   text-decoration: none;}
+.red {   font-size: 17px;    padding: 0 6px;    text-decoration: none;}
+.green_btn{padding: 5px;}
+.blue_btn{ padding:5px;}
+.mod-login{ width:100%; }
+.logout {padding: 4px; border: 1px solid #096; text-decoration: none; background: #096 none repeat scroll 0% 0%; color: rgb(255, 255, 255); border-radius:10px }
+.export{padding: 4px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%; color: rgb(255, 255, 255);}
+.create-company	{padding: 4px; border: 1px solid rgb(0, 92, 185); text-decoration: none; background: rgb(0, 92, 185) none repeat scroll 0% 0%; color: #fff !important;}
+.blue_btn{ padding:5px!important;}
+.tablecompany {font-size: 11px;margin: 0 auto;width: 94%;}
+.tablecompany tr th{ padding:0px 0;}
+.tablecompany tr td{ padding:1px;}
+}
+

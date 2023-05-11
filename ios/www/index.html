@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title class="i18n">Salestratus</title>
+
+    <link rel="stylesheet" href="Original/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Original/bootstrap-3.3.4-dist/css/bootstrap.min.css"  />
+    <link rel="stylesheet" href="Original/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="Original/css/animate.css" />
+    <link rel="stylesheet" href="Original/css/normalize.css" />
+    <link rel="stylesheet" href="Original/css/base.css" />
+    <link rel="stylesheet" href="Original/css/layout.css" />
+    <link rel="stylesheet" href="Original/css/forms.css" />
+    <link rel="stylesheet" href="Original/css/modules.css" />
+    <link rel="stylesheet" href="Original/css/flip-scroll.css">
+
+    <link rel="stylesheet" href="css/framework7/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7/framework7.ios.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+</head>
+<body>
+<div id="brandingBanner">
+    <img id="brandingBannerImage" src="" alt="">
+    <img crossorigin="anonymous" id="brandingBannerTemp" src="" alt="">
+</div>
+<div id="leads_json" style="display: none;"></div>
+<div id="leads_checked" style="display: none;"></div>
+<div class="views">
+    <div class="view super-main-view">
+        <div class="pages">
+
+            <div class="page cached" data-page="login" style="background-color: white;">
+                <div class="page-content">
+                    <div class="mod-login col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center" style="top:15%;border:none;width:100%;padding-right: 15px;padding-left: 15px;">
+                        <img id="img-logo" src="Original/images/layout/logo.svg" width="95%" height="80%" alt="Salestratus Spark" class="animated fadeIn delay-small" style="margin:0" />
+                        <form name="form" id="form" class="form-horizontal animated zoomInDow">
+                            <div class="input-group" id="errmsg" style="color:#ff0000; text-align:center; display:block;"></div>
+                            <div class="input-group" style="width:100%">
+                                <input id="user" type="text" class="form-control i18n"  name="username" value="" data-i18n-attribute="placeholder" placeholder="Username" style="font-size: 1em;border-radius: 5px;">
+                            </div>
+                            <div class="input-group" style="width:100%">
+                                <input id="password" type="password"  class="form-control i18n" name="password" data-i18n-attribute="placeholder" placeholder="Password" style="font-size: 1em;border-radius: 5px;">
+                            </div>
+                            <div class="input-group" style="width:100%">
+                                <div>
+                                    <input type="button" id="login-btn" class="btn btn-primary btn-lg i18n" onclick="login()" data-i18n-attribute="value" value="Enter" />
+                                </div>
+                            </div>
+                            <span class="copyright i18n" style="color: #9A9A9A;">@SALESTRATUS SAS - All rights reserved. V.7.0.4</span>
+
+                        </form>
+                    </div>
+                </div>
+            </div><!-- login -->
+
+            <div class="page cached" data-page="main">
+                <!--<div class="statusbar-overlay" style="display:block !important; position:relative;background-color: #0069d2;"></div>-->
+                <div class="page-content">
+                    <div class="views">
+                        <div class="view view-main">
+
+                            <div class="navbar theme-white" style="border-radius:0;top:0px">
+
+                                <div data-page="trades" class="navbar-inner" >
+                                    <div class="left"><a href="#" id="navMenu1" class="link icon-only open-panel"> <i class="fa fa-list" style="color: white;"></i></a></div>
+                                    <div class = "center sliding tab_title" id="navTitle1" style="color:white"></div>
+                                    <div class="right" style="color:white;"><div id="total-leads" style="margin-right:5px;"></div><i class="fa fa-users"></i></div>
+                                </div>
+
+                                <div data-page="home" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" id="navMenu" class="link icon-only open-panel"> <i class="fa fa-list" style="color: white;"></i></a></div>
+                                    <div class="center sliding tab_title" id="navTitle" style="color: white"></div>
+                                    <div class="right" style="color:white;"><div id="tradeshow-leads" style="margin-right:5px;"></div><i class="fa fa-users"></i></div>
+                                </div>
+
+                                <div data-page="self" id="navbar-self" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" id="navMenu2" class="link icon-only open-panel"> <i class="fa fa-list" style="color: white;"></i></a></div>
+                                    <div class="center sliding self_title" id="navTitle2" style="color: white"></div>
+                                </div>
+
+                                <div data-page="profile-details" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" id="backToMode"> <i class="icon icon-back" style="float:left"></i><span style="color:white;padding-left:5px" class="back-text i18n">Back</span></a></div>
+                                    <div class="center sliding tab_title i18n" style="color: white">Profile details</div>
+                                    <div class="right"><a href="#" onclick="saveLead();" class="i18n">Save</a></div>
+                                </div>
+
+                                <div data-page="linked-users" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" id="backToHomeLinked"> <i class="icon icon-back" style="float:left"></i><span style="color:white;padding-left:5px" class="back-text i18n">Back</span></a></div>
+                                    <div id="navTitleLinked" class="center sliding tab_title i18n" style="color: white">Profile details</div>
+                                </div>
+
+                                <div data-page="select-mode" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" id="backToHome"> <i class="icon icon-back" style="float:left"></i><span style="color:white;padding-left:5px" class="back-text i18n">Back</span></a></div>
+                                    <div class="center sliding tab_title i18n" style="color: white">Select a mode</div>
+                                </div>
+
+                                <div data-page="group-mode" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" id="backToHome2"> <i class="icon icon-back" style="float:left"></i><span style="color:white;padding-left:5px" class="back-text i18n">Back</span></a></div>
+                                    <div class="center sliding tab_title i18n" style="color: white">Select a mode</div>
+                                </div>
+
+                                <div data-page="email-all-data" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span style="color:white;" class="back-text i18n">Back</span></a></div>
+                                    <div class="center sliding tab_title i18n" style="color: white">Email all data</div>
+                                </div>
+
+                                <div data-page="edit-tradeshow" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span style="color:white;" class="back-text i18n">Back</span></a></div>
+                                    <div class="center sliding tab_title i18n" style="color: white">Edit tradeshow (admin)</div>
+                                </div>
+
+                                <div data-page="pre-profile-lists" class="navbar-inner cached">
+                                    <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span style="color:white;" class="back-text i18n">Back</span></a></div>
+                                    <div class="center sliding tab_title i18n" style="color: white">Swap field label</div>
+                                </div>
+
+                            </div>
+
+                            <div class="pages navbar-through toolbar-through">
+
+                                <div data-page="trades" class="page">
+                                    <div class="page-content" style="overflow-x: hidden !important;">
+                                        <div class="panel-overlay"></div>
+                                        <div id="panel-left1" class="panel panel-left panel-cover my-top-panel">
+                                            <div class="content-block" style="padding:0">
+                                                <!--<p id="panel-email-all-data1 i18n" style="color: white; padding-left:8%">Email all data</p>-->
+                                                <p id="panel-edit-tradeshow1" style="color: white; padding-left:8%" class="i18n">Edit tradeshow (admin)</p>
+                                                <p id="panel-support1" style="color: white; padding-left:8%" class="i18n">Support & User guides</p>
+                                                <p id="panel-privacy1" style="color: white; padding-left:8%" class="i18n">Privacy</p>
+                                                <p id="clear-leads" onclick="clearLeadsManual()" style="color: white; padding-left:8%" class="i18n">Clear synced leads</p>
+                                                <p id="clear-app-data" onclick="clearAppData()" style="color: white; padding-left:8%" class="i18n">Reset app</p>
+                                                <p id="panel-theme1" style="color: white; padding-left:8%" class="i18n panel-theme">Dark theme</p>
+                                                <p class="change-language" style="color: white; padding-left:8%">
+                                                    <span class="i18n">Change language</span>
+                                                </p>
+                                                <ul class="languages"></ul>
+                                                <p id="panel-log-out1" style="color: white; padding-left:8%" class="i18n">Log out</p>
+                                            </div>
+                                        </div>
+                                        <div class="container" style="position:relative; width:100%">
+                                            <div class="message-notification">You have a message!</div>
+                                            <div style="height:200px; wdith:100%; position:relative;">
+                                                <div id="piechart" style="z-index: 1; position:absolute; left:0; top:0; height:200px; width: 100%; margin: 0 auto;"></div>
+                                                <div style="position:absolute; left:0; top:0; z-index:2; height:50px; width: 50px;">
+                                                    <button id="server-sync-btn1" type="button" class="btn btn-primary btn-lg btn-circle btn-refresh">
+                                                        <i class="fa fa-refresh refresh-sm" style="font-size:18px !important"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div style="padding-top:20px;"></div>
+
+                                            <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar" style="border-radius: 5px;" id="tradeshowsearch">
+                                                <div class="searchbar-input">
+                                                    <input type="search" class="i18n" data-i18n-attribute="placeholder" placeholder="Search existing tradeshows" style="background-color: transparent;"><a href="#" class="searchbar-clear"></a>
+                                                </div>
+                                                <a href="#" class="searchbar-cancel i18n">Cancel</a>
+                                            </form>
+
+                                            <div>
+                                                <div class="list-block list-block-search searchbar-found">
+                                                    <ul id="tradeshowlist">
+                                                        <!-- tradeshowlist list-->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- trades -->
+
+                                <div data-page="home" class="page cached">
+                                    <div class="page-content">
+                                        <div class="panel-overlay"></div>
+                                        <div id="panel-left" class="panel panel-left panel-cover my-top-panel">
+                                            <div class="content-block" style="padding:0">
+                                                <p id="panel-change-tradeshow" style="color: white; padding-left:8%" class="i18n">Select a different tradeshow</p>
+                                                <p id="panel-email-all-data" style="color: white; padding-left:8%" class="i18n">Email all data</p>
+                                                <p id="panel-linked-users" onclick="showLinkedUsers()" style="color: white; padding-left:8%" class="i18n">Linked users</p>
+                                                <p id="panel-edit-tradeshow" style="color: white; padding-left:8%" class="i18n">Edit tradeshow (admin)</p>
+                                                <p id="panel-support" style="color: white; padding-left:8%" class="i18n">Support & User guides</p>
+                                                <p id="panel-privacy" style="color: white; padding-left:8%" class="i18n">Privacy</p>
+                                                <p id="panel-theme" style="color: white; padding-left:8%" class="i18n panel-theme">Dark theme</p>
+                                                <p class="change-language" style="color: white; padding-left:8%">
+                                                    <span class="i18n">Change language</span>
+                                                </p>
+                                                <ul class="languages"></ul>
+                                                <p id="panel-log-out" style="color: white; padding-left:8%" class="i18n">Log out</p>
+                                            </div>
+                                        </div>
+                                        <div class="container" style="position: relative; width:100%">
+                                            <div class="message-notification">You have a message!</div>
+                                            <div>
+                                                <div>
+                                                    <button id="tradeshow-home-button" type="button" class="btn btn-primary btn-lg btn-circle" style="background-color:#0069d2;margin-right:10px">
+                                                        <i class="fa fa-home" style="font-size:26px !important; color:white;"></i>
+                                                    </button>
+                                                    <button id="server-sync-btn" type="button" class="btn btn-primary btn-lg btn-circle btn-refresh">
+                                                        <i class="fa fa-refresh refresh-sm" style="font-size:18px !important"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right add-lead" style="background-color:#0069d2;margin-right:10px" onclick="clickBtnSelectMode()">
+                                                        <i class="fa fa-plus" style="font-size:18px !important; color:white;"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div style="padding-top:20px;"></div>
+                                            <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar" style="border-radius: 5px;" id="leadsearch">
+                                                <div class="searchbar-input">
+                                                    <input type="search" class="i18n" data-i18n-attribute="placeholder" placeholder="Search existing leads" style="background-color: transparent;"><a href="#" class="searchbar-clear"></a>
+                                                </div>
+                                                <a href="#" class="searchbar-cancel i18n">Cancel</a>
+                                            </form>
+
+                                            <div>
+                                                <div class="list-block list-block-search searchbar-found">
+                                                    <ul id="leadslist">
+                                                        <!-- leads list-->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- home -->
+
+                                <div data-page="linked-users" class="page cached">
+                                    <div class="page-content">
+                                        <div class="panel-overlay"></div>
+                                        <div class="container" style="width:100%">
+                                            <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar" style="border-radius: 5px;" id="usersearch">
+                                                <div class="searchbar-input">
+                                                    <input type="search" class="i18n" data-i18n-attribute="placeholder" placeholder="Search linked users" style="background-color: transparent;"><a href="#" class="searchbar-clear"></a>
+                                                </div>
+                                                <a href="#" class="searchbar-cancel i18n">Cancel</a>
+                                            </form>
+
+                                            <div>
+                                                <div class="list-block list-block-search searchbar-found">
+                                                    <ul id="userlist">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- linked-users -->
+
+                                <div data-page="self" class="page self-reg cached">
+                                    <div class="page-content">
+                                        <div class="panel-overlay"></div>
+                                        <div id="panel-left-self" class="panel panel-left panel-cover my-top-panel">
+                                            <div class="content-block" style="padding:0">
+                                                <p id="panel-self-back" style="color: white; padding-left:8%" class="i18n">Select a different tradeshow</p>
+                                                <p id="panel-log-out-self" style="color: white; padding-left:8%" class="i18n">Log out</p>
+                                            </div>
+                                        </div>
+                                        <div class="start-section initial-section">
+                                            <p class="start-view-txt i18n">SELF REGISTER HERE!</p>
+                                            <a class="start-button i18n">START</a>
+                                            <p class="instructions-txt i18n">PRESS HERE AND FOLLOW THE INSTRUCTIONS</p>
+                                        </div>
+
+                                        <div class="container" style="width:100%">
+                                            <div class='details-wrapper'>
+                                                <!--        <div class='details-wrapper'>-->
+                                                <div class='scan-badge-section details-section self-step'>
+                                                    <h2><b class="i18n">Scan your badge</b></h2>
+                                                    <p class="i18n">Select a camera to scan with</p>
+                                                    <div id="barcode_result_self"></div>
+                                                    <div class="details-input-wrapper form-buttons">
+                                                        <a onclick="barcodeScanSelf(true)" class="startSelfScan contr i18n">FRONT CAMERA</a>
+                                                        <a onclick="barcodeScanSelf(false)" class="startSelfScan rear contr i18n">BACK CAMERA</a>
+                                                        <div class="break"></div>
+                                                        <a id="skipSelfScan" class="form-next contr i18n" onclick="clearTimeout(g_selfScanTimeout);">SKIP</a>
+                                                    </div>
+                                                </div>
+                                                <div id='profiledetail-self' class='details-section self-step'>
+                                                    <h2><b class="i18n">My details</b></h2>
+                                                    <p class='details-accuracy i18n'>Please ensure accuracy and edit if needed</p>
+                                                    <div id='profiledetailForm' class='details-form'>
+                                                    </div>
+                                                    <div class="details-input-wrapper form-buttons">
+                                                        <a class="form-back contr i18n">BACK</a>
+                                                        <a id="checkProfileSelf" class="form-next contr i18n">NEXT</a>
+                                                    </div>
+                                                </div>
+                                                <div class='details-section quick-note self-step hidden'>
+                                                    <h2 class='mb-5'><b class="i18n">Want to add a comment or question?</b></h2>
+                                                    <div class='details-form'>
+                                                        <div class='details-input-wrapper'>
+                                                            <textarea id="note_text_self" data-i18n-attribute="placeholder" placeholder="Type your comment or question here"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="details-input-wrapper form-buttons">
+                                                        <a id="save-lead-btn-self" onclick="saveLead();" class="i18n">FINISH REGISTRATION</a>
+                                                        <div class="break"></div>
+                                                        <a class="form-back contr i18n">BACK</a>
+                                                    </div>
+                                                </div>
+                                                <div class='end-section hidden'>
+                                                    <p class='start-view-txt mt-5 i18n'>REGISTRATION COMPLETED!</p>
+                                                    <p class='start-view-txt mt-5 i18n'>THANK YOU.</p>
+                                                </div>
+                                                <div class='form-overlay'>
+                                                    <div class='overlay-panel'>
+                                                        <p class='modal-form-title i18n'></p>
+                                                        <input type="text" placeholder="Company" class='modal-input' />
+                                                        <select class='modal-input'></select>
+                                                        <p class='warning i18n'>Please fill the input</p>
+                                                        <div class='d-flex justify-content-center modal-buttons-wrapper'>
+                                                            <a class='form-back modal-cancel i18n'>CANCEL</a>
+                                                            <a class='form-next modal-save i18n'>SAVE</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class='form-overlay error-overlay'>
+                                                    <div class='overlay-panel'>
+                                                        <p class='modal-form-title error-title mb-5 i18n'>Please Fill Required Inputs</p>
+                                                        <div class='d-flex justify-content-center modal-buttons-wrapper'>
+                                                            <a class='modal-yes form-next modal-cancel mr-0 blue-button i18n'>CLOSE</a>
+                                                            <a class='modal-no form-next modal-cancel hidden ml-3 i18n'>NO</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- self -->
+
+                                <div data-page="select-mode" id="select-mode" class="page cached">
+                                    <div class="page-content">
+                                        <div class="content-block">
+                                            <!-- FOR android <div class="row choice-list animated fadeInRight" id="fields">-->
+                                            <div class="row choice-list fadeInRight" id="fields">
+                                                <div class="col-sm-12 mode enabled">
+                                                    <a href="" id="btn-select-bizcard" class="btn btn-secondary btn-lg btn-select-mode icon-ocr"  style="width:90%;margin-top:15px;" role="button"><b class="i18n">Business Card</b></a>
+                                                </div>
+                                                <div class="col-sm-12 mode enabled">
+                                                    <a href="" id="btn-select-manually" class="btn btn-secondary btn-lg btn-select-mode icon-manual"  style="width:90%;" role="button">
+                                                        <b class="i18n">Manual Entry</b>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12 mode enabled">
+                                                    <a href="javascript:barcodeScanDirect(true)" id="btn-badge-scan" class="btn btn-secondary btn-lg btn-select-mode icon-barcode"  style="width:90%;" role="button">
+                                                        <b class="i18n">Badge Code Scan</b>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12" id="group-scan-container">
+                                                    <a href="javascript:clickBtnGroupMode()" id="btn-group-scan" class="btn btn-secondary btn-lg btn-select-mode icon-group"  style="width:90%;" role="button">
+                                                        <b class="i18n">Group Scan</b>
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-12" id="quick-scan-container">
+                                                    <a href="javascript:barcodeScanDirect(false)" id="btn-quick-scan" class="btn btn-secondary btn-lg btn-select-mode icon-quick"  style="width:90%;" role="button">
+                                                        <b class="i18n">Quick Scan</b>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- select-mode -->
+
+                                <div data-page="group-mode" class="page cached">
+                                    <div class="page-content">
+                                        <div class="content-block">
+                                            <div class="col-sm-12" id="group-header">
+                                                <b class="i18n">Group Scan</b>
+                                            </div>
+                                            <div class="col-sm-12" id="group-scan-leader">
+                                                <a href="javascript:addGroupMember(true, false, 'leader')" id="btn-group-leader" class="btn btn-lg btn-select-mode icon-leader"  style="width:90%;" role="button">
+                                                    <b class="i18n">Scan leader</b>
+                                                </a>
+                                            </div>
+                                            <!--                                            <div class="col-sm-12 hidden" id="group-scan-member">-->
+                                            <!--                                                <a href="javascript:addGroupMember(false, false, 'member')" id="btn-group-member" class="btn btn-lg btn-select-mode icon-member"  style="width:90%;" role="button">-->
+                                            <!--                                                    <b class="i18n">Scan member</b>-->
+                                            <!--                                                </a>-->
+                                            <!--                                            </div>-->
+                                            <div class="col-sm-12" id="group-scan-finish">
+                                                <a href="javascript:cancel()" id="btn-group-finish" class="btn btn-lg btn-select-mode icon-finish"  style="width:90%;" role="button">
+                                                    <b class="i18n">Cancel</b>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- group-scan -->
+
+                                <div data-page="profile-details" class="page cached">
+                                    <div class="page-content scroll-page">
+                                        <div class=" panel-group" id="profile-details-ul" role="tablist" aria-multiselectable="true">
+                                            <div id="bizcard-part" style="line-height:0">
+                                                <div>
+                                                    <div id="biz-super-container" class="item-subtitle" style="width:100%;overflow:hidden;position:relative;">
+                                                        <img src="" id="img_bizcard" class="draggable" style="position:absolute;max-width:none">
+                                                        <button id="btn_biz_scan_container" type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" style="position: absolute;top: 5%;right: 5%;background-color: rgba(0,0,0,0.5);border-color: white;">
+                                                            <i class="fa fa-camera" id="btn_biz_scan" style="color: white;"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" style="position: absolute;top: 30%;right: 5%;background-color: rgba(0,0,0,0.5);border-color: white;" onclick="imgZoomIn();">
+                                                            <i class="fa fa-search-plus" style="color: white;"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" style="position: absolute;top: 55%;right: 5%;background-color: rgba(0,0,0,0.5);border-color: white;" onclick="imgZoomOut();">
+                                                            <i class="fa fa-search-minus" style="color: white;"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default "  id="profiledetail" style="display:block; background:white; position:relative; width:100%; padding-top:0px">
+                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                    <h4 class="panel-title">
+                                                                <span  role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display:flex">
+                                                                    <a style="color: #0069D2; width:95%" class="i18n">Profile Details</a>
+                                                                    <a class="fa fa-sort" style="color: #0069D2; width:5%"></a>
+                                                                </span>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne" class="panel-collapse1 collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body" style="padding-top:0">
+                                                        <div>
+                                                            <ul id="detailList" style="padding-left:0;">
+                                                                <li id="barcode-part" style="height: 50px;">
+                                                                    <div class="item-content">
+                                                                        <div class="item-inner" style="padding-right:0">
+                                                                            <div style="width:80%;margin-left:15px;float:left">
+                                                                                <div class="item-after i18n" style="color: #0069D2; padding-top: 10px;">Barcode Scan Result</div>
+                                                                                <div class="item-title" style="padding-left:5px">
+                                                                                    <input type="text" id="barcode_result" class="form-control txt_detaillistfields" style="border-width:0px;box-shadow:none;font-size:1em">
+                                                                                </div>
+                                                                            </div>
+                                                                            <button type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" style="position: absolute;right: 5%;background-color: rgba(0,0,0,0.5);border-color: white;" onclick="barcodeScan()">
+                                                                                <i class="fa fa-camera" style="color: white;"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <div>
+                                                                    <ul id="detaillistfields" style="padding-left:0px"></ul>
+                                                                </div>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default" style="display:block;background:white;position:relative;width:100%;margin-top: 1px;padding-top:0px;">
+                                                <div class="panel-heading" role="tab" id="headingThree">
+                                                    <h4 class="panel-title" style="display:flex">
+                                                                <span  role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree" style="display:flex;width:100%">
+                                                                    <a style="color: #0069D2; width:95%" class="i18n">Quick Notes</a>
+                                                                    <a class="fa fa-sort" style="color: #0069D2; width:5%"></a>
+                                                                </span>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                    <div class="panel-body">
+                                                        <div class="content-block">
+                                                            <div style="padding-top: 10px;">
+                                                                <!--
+																 <button onclick="playAudio();" id="btn-play-audio" type="button" class="btn btn-primary btn-lg btn-circle pull-right" style="margin-left:10px;">
+																 <i class="fa fa-play"></i>
+																 </button>
+																 <button onclick="captureAudio();" id="btn-capture-audio" type="button" class="btn btn-primary btn-lg btn-circle btn-pencil pull-right" style="margin-right:0;">
+																 <i class="fa fa-microphone"></i>
+																 </button>
+																 -->
+                                                                <!--                                                                <button type="button" id="btn-quick-note" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" style="margin-right:10px">-->
+                                                                <!--                                                                    <i class="fa fa-text-width"></i>-->
+                                                                <!--                                                                </button>-->
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                            <div style="padding-top: 10px;">
+                                                                <textarea id="note_text" rows="6" data-i18n-attribute="placeholder" placeholder="Add text notes here" class="input-primary i18n"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--
+											 <div class="panel panel-default" style="display:block;background:white;position:relative;width:100%;margin-top: 1px;padding-top:0px">
+											 <div class="panel-heading" role="tab" id="headingFour">
+											 <h4 class="panel-title" style="display:flex">
+											 <span  role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseThree" style="display:flex;width:100%">
+											 <a style="color: #0069D2; width:95%"> Photo </a>
+											 <a class="fa fa-sort" style="color: #0069D2; width:5%"></a>
+											 </span>
+											 </h4>
+											 </div>
+											 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+											 <div class="panel-body">
+											 <div class="content-block">
+											 <div style="padding-top: 10px;">
+											 <button type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" onclick="takePhoto()">
+											 <i class="fa fa-camera"></i>
+											 </button>
+											 <div class="clearfix"></div>
+											 </div>
+											 <div style="padding-top: 10px;">
+											 <div id="photo"></div>
+											 </div>
+											 </div>
+											 </div>
+											 </div>
+											 </div>
+											 -->
+                                        </div>
+                                        <div style="padding:5%;padding-bottom:200px;">
+                                            <input type="button" id="save-lead-btn" class="btn btn-secondary btn-lg" onclick="saveLead();" value="Save" style="width:100%; height: 40px;" />
+                                        </div>
+                                    </div>
+                                </div><!-- profile-details -->
+
+                                <div data-page="pre-profile-lists" data-select-name="profilefields" class="page cached smart-select-page navbar-through page-on-center">
+                                    <div class="page-content">
+                                        <div class="list-block virtual-list smart-select-list-1454095903955 ">
+                                            <ul id="detaillistfieldsSwap">
+                                                <li class="pre-profile-list" value="Email"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="email"><div class="item-inner"><div class="item-title i18n">Email</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Salutation"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="salutation"><div class="item-inner"><div class="item-title i18n">Salutation</div></div></label>
+                                                <li class="pre-profile-list" value="First Name"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="lfname"><div class="item-inner"><div class="item-title i18n">First Name</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Last Name"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="llname"><div class="item-inner"><div class="item-title i18n">Last Name</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Company"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="company"><div class="item-inner"><div class="item-title i18n">Company</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Address"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="Address"><div class="item-inner"><div class="item-title i18n">Address</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="City"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="city"><div class="item-inner"><div class="item-title i18n">City</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="ZipCode"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="zipcode"><div class="item-inner"><div class="item-title i18n">ZipCode</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Phone"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="position"><div class="item-inner"><div class="item-title i18n">Phone</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Mobile"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="mobile"><div class="item-inner"><div class="item-title i18n">Mobile</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Fax"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="fax"><div class="item-inner"><div class="item-title i18n">Fax</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Title"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="job"><div class="item-inner"><div class="item-title i18n">Title</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Web"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="web"><div class="item-inner"><div class="item-title i18n">Web</div></div></label>
+                                                </li>
+                                                <li class="pre-profile-list" value="Country"><label class="label-radio item-content"><input type="radio" name="radio-1454095903955" value="country"><div class="item-inner"><div class="item-title i18n">Country</div></div></label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!-- pre-profile-list -->
+
+                                <div data-page="email-all-data" class="page cached">
+                                    <div class="page-content">
+                                        <div class="content-block">
+
+                                            <div style="text-align:center;padding:10%">
+                                                <b style="font-size:1.2em;" class="i18n">Which separator do you want to use for your CSV export?</b>
+                                            </div>
+
+                                            <div style="text-align:center">
+                                                <div style="float:left; width:50%">
+                                                    <label class="i18n">Separator</label>
+                                                </div>
+                                                <div class="item-input" style="float:left; width:30%">
+                                                    <select id="separator">
+                                                        <option value="volvo">,</option>
+                                                        <option value="saab">;</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div style="padding-top:20%">
+                                                <div style="width:80%">
+                                                    <input type="text" id="admin-email" class="form-control i18n" data-i18n-attribute="placeholder" placeholder="Enter email" style="font-size:1em;color:black">
+                                                </div>
+                                                <div id="list"></div>
+                                                <hr/>
+                                                <div>
+                                                    <div style="float:left;width:80%">
+                                                        <input type="text" id="answer"  class="from-control i18n" data-i18n-attribute="placeholder" placeholder="Enter another email"  value="" />
+                                                    </div>
+                                                    <div style="float:left; padding-left:5px">
+                                                        <input type="button" name="add" value="+" onclick="addEmail()" class="del blue" style="background-color: #0069D2;"/>
+                                                    </div>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                                <div style="text-align:center;">
+                                                    <div style="float:left;padding:5%;width:50%;">
+                                                        <input name="save" type="button" onclick="cancel()" class="i18n button" data-i18n-attribute="value" value="Cancel" />
+                                                    </div>
+                                                    <div style="float:left;padding:5%;width:50%;">
+                                                        <input name="save" type="button" value="Send" class="button" onclick="send()";/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        Type your comment     </div>
+                                </div><!-- email-all-data -->
+
+                            </div><!-- navbar -->
+                        </div><!-- view -->
+                    </div><!-- views -->
+                </div><!-- page-content -->
+            </div><!-- main -->
+        </div><!-- pages -->
+    </div><!-- view -->
+</div><!-- views -->
+
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="js/framework7/framework7.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.12.1.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<style>
+    input, textarea {
+        -webkit-user-select: auto !important;
+        -khtml-user-select: auto !important;
+        -moz-user-select: auto !important;
+        -ms-user-select: auto !important;
+        -o-user-select: auto !important;
+        user-select: auto !important;
+    }
+</style>
+<script src="js/owl.carousel.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/interact.js"></script>
+<script type="text/javascript" src="js/hammer.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/exporting.js"></script>
+<script src="js/aes-256.js"></script>
+
+
+</body>
+</html>

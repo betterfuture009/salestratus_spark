@@ -1,0 +1,73 @@
+
+.table-striped{}
+.table-striped th{ padding:15px; background:#333; color:#fff; text-align: center; }
+.table-striped td{ padding: 17.1px; text-align: center;  text-transform: inherit; width:200px;}
+.table-striped tbody tr:nth-child(2n+1) td, .table-striped tbody tr:nth-child(2n+1) th {
+    background-color: #eee;
+}
+
+
+@media only screen and (max-width: 800px) {
+	
+	#flip-scroll .cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	#flip-scroll * html .cf { zoom: 1; }
+	#flip-scroll *:first-child+html .cf { zoom: 1; }
+	
+	#flip-scroll table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+
+	#flip-scroll th,
+	#flip-scroll td { margin: 0; vertical-align: top; }
+	#flip-scroll th { text-align: left; }
+	
+	#flip-scroll table { display: block; position: relative; width: 100%; }
+	#flip-scroll thead { display: block; float: left; }
+	#flip-scroll tbody { display: block; width: auto; position: relative; overflow-x: auto; white-space: nowrap; }
+	#flip-scroll thead tr { display: block; }
+	#flip-scroll th { display: block; text-align: right; }
+	#flip-scroll tbody tr { display: inline-block; vertical-align: top; }
+	#flip-scroll td { display: block; min-height: min-height: 3.65em;; text-align: left; width:100%; }
+
+
+	/* sort out borders */
+
+	#flip-scroll th { border-bottom: 0; border-left: 0; }
+	#flip-scroll td { border-left: 0; border-right: 0; border-bottom: 0; }
+	#flip-scroll tbody tr { border-left: 1px solid #babcbf; }
+	#flip-scroll th:last-child,
+	#flip-scroll td:last-child { border-bottom: 1px solid #babcbf; }
+	#flip-scroll th{ height:52.5px;}
+}
+
+@media only screen and (max-width: 768px) {
+#flip-scroll th {
+    height: 55.8px;
+}
+
+.num {
+    height: 50px !important;
+}
+#flip-scroll tbody {
+    display: block;
+    height: 390px;
+    overflow: scroll;
+    position: relative;
+    white-space: nowrap;
+    width: auto;
+}
+#flip-scroll table {
+    border: 1px solid #ccc;
+    display: block;
+    height: 410px;
+    overflow: scroll;
+    position: relative;
+    width: 100%;
+}
+
+#flip-scroll tbody tr {
+    display: inline-block;
+    float: left;
+    overflow: scroll;
+    vertical-align: top;
+    width: 100%;
+}
+}
