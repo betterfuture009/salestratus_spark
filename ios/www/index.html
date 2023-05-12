@@ -37,8 +37,8 @@
         <div class="pages">
 
             <div class="page cached" data-page="login" style="background-color: white;">
-                <div class="page-content">
-                    <div class="mod-login col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center" style="top:15%;border:none;width:100%;padding-right: 15px;padding-left: 15px;">
+                <div class="page-content login">
+                    <div class="mod-login col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 text-center" style="top: 10%; border:none;width:100%;padding: 0px 15px;">
                         <img id="img-logo" src="Original/images/layout/logo.svg" width="95%" height="80%" alt="Salestratus Spark" class="animated fadeIn delay-small" style="margin:0" />
                         <form name="form" id="form" class="form-horizontal animated zoomInDow">
                             <div class="input-group" id="errmsg" style="color:#ff0000; text-align:center; display:block;"></div>
@@ -66,7 +66,7 @@
                     <div class="views">
                         <div class="view view-main">
 
-                            <div class="navbar theme-white" style="border-radius:0;top:0px">
+                            <div class="navbar theme-white" style="border-radius:0;top:0px;">
 
                                 <div data-page="trades" class="navbar-inner" >
                                     <div class="left"><a href="#" id="navMenu1" class="link icon-only open-panel"> <i class="fa fa-list" style="color: white;"></i></a></div>
@@ -338,26 +338,38 @@
                                             <!-- FOR android <div class="row choice-list animated fadeInRight" id="fields">-->
                                             <div class="row choice-list fadeInRight" id="fields">
                                                 <div class="col-sm-12 mode enabled">
-                                                    <a href="" id="btn-select-bizcard" class="btn btn-secondary btn-lg btn-select-mode icon-ocr"  style="width:90%;margin-top:15px;" role="button"><b class="i18n">Business Card</b></a>
+                                                    <a href="" id="btn-select-bizcard" class="btn btn-secondary btn-lg btn-select-mode icon-ocr"  style="width:90%;margin-top:15px;" role="button">
+                                                        <img class="mode-icon" src="./images/icon-ocr.svg">
+                                                        <img class="mode-icon dark" src="./images/icon-ocr-dark.svg">
+                                                        <div class="i18n">Business Card</div>
+                                                    </a>
                                                 </div>
                                                 <div class="col-sm-12 mode enabled">
                                                     <a href="" id="btn-select-manually" class="btn btn-secondary btn-lg btn-select-mode icon-manual"  style="width:90%;" role="button">
-                                                        <b class="i18n">Manual Entry</b>
+                                                        <img class="mode-icon" src="./images/icon-manual.svg">
+                                                        <img class="mode-icon dark" src="./images/icon-manual-dark.svg">
+                                                        <div class="i18n">Manual Entry</div>
                                                     </a>
                                                 </div>
                                                 <div class="col-sm-12 mode enabled">
                                                     <a href="javascript:barcodeScanDirect(true)" id="btn-badge-scan" class="btn btn-secondary btn-lg btn-select-mode icon-barcode"  style="width:90%;" role="button">
-                                                        <b class="i18n">Badge Code Scan</b>
+                                                        <img class="mode-icon" src="./images/icon-barcode.svg">
+                                                        <img class="mode-icon dark" src="./images/icon-barcode-dark.svg">
+                                                        <div class="i18n">Badge Code Scan</div>
                                                     </a>
                                                 </div>
                                                 <div class="col-sm-12" id="group-scan-container">
                                                     <a href="javascript:clickBtnGroupMode()" id="btn-group-scan" class="btn btn-secondary btn-lg btn-select-mode icon-group"  style="width:90%;" role="button">
-                                                        <b class="i18n">Group Scan</b>
+                                                        <img class="mode-icon quick" src="./images/icon-group.png">
+                                                        <img class="mode-icon quick dark" src="./images/icon-group-dark.png">
+                                                        <div class="i18n">Group Scan</div>
                                                     </a>
                                                 </div>
                                                 <div class="col-sm-12" id="quick-scan-container">
                                                     <a href="javascript:barcodeScanDirect(false)" id="btn-quick-scan" class="btn btn-secondary btn-lg btn-select-mode icon-quick"  style="width:90%;" role="button">
-                                                        <b class="i18n">Quick Scan</b>
+                                                        <img class="mode-icon quick" src="./images/icon-star.png">
+                                                        <img class="mode-icon quick dark" src="./images/icon-star-dark.png">
+                                                        <div class="i18n">Quick Scan</div>
                                                     </a>
                                                 </div>
                                             </div>
@@ -424,14 +436,14 @@
                                                             <ul id="detailList" style="padding-left:0;">
                                                                 <li id="barcode-part" style="height: 50px;">
                                                                     <div class="item-content">
-                                                                        <div class="item-inner" style="padding-right:0">
+                                                                        <div class="item-inner" style="padding-right:0; position: relative;">
                                                                             <div style="width:80%;margin-left:15px;float:left">
                                                                                 <div class="item-after i18n" style="color: #0069D2; padding-top: 10px;">Barcode Scan Result</div>
                                                                                 <div class="item-title" style="padding-left:5px">
                                                                                     <input type="text" id="barcode_result" class="form-control txt_detaillistfields" style="border-width:0px;box-shadow:none;font-size:1em">
                                                                                 </div>
                                                                             </div>
-                                                                            <button type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" style="position: absolute;right: 5%;background-color: rgba(0,0,0,0.5);border-color: white;" onclick="barcodeScan()">
+                                                                            <button type="button" class="btn btn-primary btn-lg btn-circle btn-camera pull-right" style="position: absolute; top: -12px; right: 5%;background-color: rgba(0,0,0,0.5);border-color: white;" onclick="barcodeScan()">
                                                                                 <i class="fa fa-camera" style="color: white;"></i>
                                                                             </button>
                                                                         </div>

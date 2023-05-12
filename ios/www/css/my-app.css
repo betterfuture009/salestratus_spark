@@ -2,8 +2,6 @@
 /* Your app custom files in this file */
 
 body{
-    padding-top: constant(safe-area-inset-top);
-    padding-top: env(safe-area-inset-top);
 }
 
 div#panel-left.panel.panel-left.panel-cover.my-top-panel.active{
@@ -69,6 +67,9 @@ div#panel-left.panel.panel-left.panel-cover.my-top-panel.active{
 }
 .page-content{
     background-color: white;
+}
+.page-content.login {
+    overflow: hidden;
 }
 .status-lbl{
     margin-left: 0px;
@@ -251,40 +252,64 @@ body, body > .views, .pages, .pages > .page {
     background-color: #70ad47 !important;
 }
 
-.icon-ocr:before,
-.icon-manual:before,
-.icon-barcode:before,
-.icon-group:before,
-.icon-quick:before {
-    content: "";
-    display: block;
+/*.icon-ocr:before,*/
+/*.icon-manual:before,*/
+/*.icon-barcode:before,*/
+/*.icon-group:before,*/
+/*.icon-quick:before {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    width: 63px;*/
+/*    height: 47px;*/
+/*    margin: 0 auto;*/
+/*    background-size: contain;*/
+/*}*/
+
+/*.icon-ocr:before {*/
+/*    background-image: url(../images/icon-ocr.png);*/
+/*}*/
+
+/*.icon-manual:before {*/
+/*    background-image: url(../images/icon-manual.png);*/
+/*}*/
+
+/*.icon-barcode:before {*/
+/*    background-image: url(../images/icon-barcode.png);*/
+/*}*/
+
+/*.icon-group:before {*/
+/*    background-image: url(../images/icon-group.png);*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: center;*/
+/*}*/
+
+/*.icon-quick:before {*/
+/*    width: 47px;*/
+/*    background-image: url(../images/icon-star.png);*/
+/*}*/
+
+.mode-icon {
     width: 63px;
     height: 47px;
-    margin: 0 auto;
-    background-size: contain;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.icon-ocr:before {
-    background-image: url(../images/icon-ocr.png);
-}
-
-.icon-manual:before {
-    background-image: url(../images/icon-manual.png);
-}
-
-.icon-barcode:before {
-    background-image: url(../images/icon-barcode.png);
-}
-
-.icon-group:before {
-    background-image: url(../images/icon-group.png);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.icon-quick:before {
+.mode-icon.quick {
     width: 47px;
-    background-image: url(../images/icon-star.png);
+}
+
+.mode-icon.dark {
+    display: none;
+}
+
+body.darkmode .mode-icon {
+    display: none;
+}
+
+body.darkmode .mode-icon.dark {
+    display: block;
 }
 
 #quick-scan-container, #group-scan-container {
@@ -1359,7 +1384,7 @@ div[data-page='home'].navbar-on-center .sliding {
     left: 0px;
     padding-top: 140px;
     overflow-y: hidden;
-    top: 70px;
+    top: 0px;
 }
 
 .message-title {
@@ -1404,3 +1429,59 @@ div[data-page='home'].navbar-on-center .sliding {
 .sync-later {
     color: #006cd1;
 }
+
+@media screen and (max-width: 767px) {
+    body {
+        background: white;
+        height: 100vh !important;
+    }
+
+    /*.mod-login {*/
+    /*    top: 50% !important;*/
+    /*    transform: translateY(-50%) !important;*/
+    /*}*/
+
+    .view {
+        position: initial !important;
+    }
+
+    .navbar {
+        position: initial !important;
+        top: 0px !important;
+        left: 0px !important;
+        z-index: 10000;
+        padding-top: calc(constant(safe-area-inset-top) + 20px) !important;
+        padding-top: calc(env(safe-area-inset-top) + 20px) !important;
+    }
+
+    .navbar .left {
+        margin-top: 10px;
+    }
+
+    .navbar .center {
+        margin-top: 10px;
+    }
+
+    .navbar .right {
+        margin-top: 10px;
+    }
+
+    .my-top-panel {
+        margin-top: 0px;
+    }
+
+    .navbar-through .page-content {
+        padding-top: 2px !important;
+    }
+
+    .navbar-inner, .toolbar-inner {
+        position: initial !important;
+    }
+
+    #leadslist {
+        padding-bottom: calc(constant(safe-area-inset-bottom) + 10px) !important;
+        padding-bottom: calc(env(safe-area-inset-bottom) + 10px) !important;
+    }
+}
+
+

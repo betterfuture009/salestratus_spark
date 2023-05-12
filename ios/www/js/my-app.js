@@ -737,6 +737,8 @@ function login() {
                         pageName: 'main',
                     });
 
+                    // cordova.plugins.Keyboard.disableScroll(false);
+
                     if (brandingImageGlobalUrl) {
                         setTimeout(function() {
                             showBrandingImage()
@@ -908,6 +910,7 @@ function loginProcess() {
         pageName: 'main'
     });
 
+    // cordova.plugins.Keyboard.disableScroll(false);
     showChart();
 }
 
@@ -1113,9 +1116,9 @@ function barcodeScanDirect(doSync, role = false) {
         $('#collapseOne').collapse("show");
 
         if (g_captuvoBadgeScan) {
-            mainView.router.load({
-                pageName: 'profile-details'
-            });
+            // mainView.router.load({
+            //     pageName: 'profile-details'
+            // });
             g_currentStatus = "manually";
             g_scanType = role ? "group scan" : "badge code scan";
         } else {
@@ -1128,7 +1131,12 @@ function barcodeScanDirect(doSync, role = false) {
         barcodeScan();
 
         if (g_captuvoBadgeScan) {
-            mainView.router.back();
+            setTimeout(() => {
+                mainView.router.load({
+                    pageName: 'profile-details'
+                });
+            }, 1000);
+            // mainView.router.back();
         }
     } else {
         g_captuvoDlg = myApp.modal({
@@ -3524,13 +3532,14 @@ function saveLead() {
             showRequiredError(missingFields, missingQuestions);
 
             return;
-        } else {
-            if (email && !validateEmail(email)) {
-                myApp.alert("Invalid email!", 'Input error!');
-
-                return;
-            }
         }
+        // else {
+        //     if (email && !validateEmail(email)) {
+        //         myApp.alert("Invalid email!", 'Input error!');
+        //
+        //         return;
+        //     }
+        // }
     } else {
         g_currentStatus = "manually";
     }
@@ -4806,6 +4815,7 @@ document.addEventListener("resume", function () {
 
 document.addEventListener("deviceready", function () {
     showBrandingImage();
+    // cordova.plugins.Keyboard.disableScroll(true);
 });
 
 $$('#panel-email-all-data').on('click', panelEmailAllData);
