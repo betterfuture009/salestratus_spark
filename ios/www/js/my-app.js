@@ -1135,7 +1135,7 @@ function barcodeScanDirect(doSync, role = false) {
                 mainView.router.load({
                     pageName: 'profile-details'
                 });
-            }, 1000);
+            }, 3000);
             // mainView.router.back();
         }
     } else {
