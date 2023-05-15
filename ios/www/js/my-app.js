@@ -3330,7 +3330,7 @@ function showRequiredError(missingFields, missingQuestions) {
             for (var i = 0; i < g_profileFields.length; i++) {
                 if (missingField == g_profileFields[i]) {
                     $('#detailfieldvalue' + i).focus();
-                    window.scrollBy(0, -100);
+                    window.scrollBy(0, 0);
 
                     break;
                 }
@@ -3349,11 +3349,10 @@ function showRequiredError(missingFields, missingQuestions) {
 
                         if (question.id == missingQuestion) {
                             var containerId = '#headingTwo' + question.id;
-
                             window.location.href = containerId;
-
+                            $('.navbar').css('display', 'none');
                             $(containerId).find('a.questionname').click();
-
+                            $('.navbar').css('display', 'block');
                             break;
                         }
                     }
