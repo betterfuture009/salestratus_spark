@@ -115,7 +115,6 @@ body, body > .views, .pages, .pages > .page {
     padding: 0;
     margin: 0;
     position: relative;
-    height: 100% !important;
 }
 
 .list-block .item-link .item-inner {
@@ -209,6 +208,9 @@ body, body > .views, .pages, .pages > .page {
 
 #leadslist {
     padding-top: 5px;
+    background-color: red;
+    height: calc(100vh - 300px - env(safe-area-inset-top));
+    overflow-y: auto;
 }
 
 #group-header b {
