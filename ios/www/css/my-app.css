@@ -208,8 +208,20 @@ body, body > .views, .pages, .pages > .page {
 
 #leadslist {
     padding-top: 5px;
-    background-color: red;
-    height: calc(100vh - 300px - env(safe-area-inset-top));
+    height: calc(100vh - 260px - env(safe-area-inset-top));
+    padding-bottom: calc(env(safe-area-inset-bottom) + 10px) !important;
+    overflow-y: auto;
+}
+
+#tradeshowlist {
+    height: calc(100vh - 410px - env(safe-area-inset-top));
+    padding-bottom: calc(env(safe-area-inset-bottom) + 10px) !important;
+    overflow-y: auto;
+}
+
+#userlist {
+    height: calc(100vh - 190px - env(safe-area-inset-top));
+    padding-bottom: calc(env(safe-area-inset-bottom) + 10px) !important;
     overflow-y: auto;
 }
 
@@ -1030,12 +1042,8 @@ body.darkmode .list-block ul:after {
     background-color: #47464C;
 }
 
-body .searchbar {
-    background: #c9c9ce !important;
-}
-
 body.darkmode .searchbar {
-    background: #56545C !important;
+    background: #56545C;
 }
 
 body.darkmode .searchbar:after {
@@ -1482,11 +1490,6 @@ div[data-page='home'].navbar-on-center .sliding {
 
     .navbar-inner, .toolbar-inner {
         position: initial !important;
-    }
-
-    #leadslist {
-        padding-bottom: calc(constant(safe-area-inset-bottom) + 10px) !important;
-        padding-bottom: calc(env(safe-area-inset-bottom) + 10px) !important;
     }
 }
 
