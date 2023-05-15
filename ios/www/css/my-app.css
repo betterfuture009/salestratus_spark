@@ -1028,8 +1028,12 @@ body.darkmode .list-block ul:after {
     background-color: #47464C;
 }
 
+body .searchbar {
+    background: #c9c9ce !important;
+}
+
 body.darkmode .searchbar {
-    background: #56545C;
+    background: #56545C !important;
 }
 
 body.darkmode .searchbar:after {

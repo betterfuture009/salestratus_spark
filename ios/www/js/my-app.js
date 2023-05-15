@@ -3352,7 +3352,9 @@ function showRequiredError(missingFields, missingQuestions) {
                             window.location.href = containerId;
                             $('.navbar').css('display', 'none');
                             $(containerId).find('a.questionname').click();
-                            $('.navbar').css('display', 'block');
+                            setTimeout(() => {
+                                $('.navbar').css('display', 'block');
+                            }, 50);
                             break;
                         }
                     }
